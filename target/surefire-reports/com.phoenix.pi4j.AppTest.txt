@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.phoenix.pi4j.AppTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in com.phoenix.pi4j.AppTest
