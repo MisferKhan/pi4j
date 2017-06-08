@@ -28,22 +28,22 @@ public class Controller {
 		pin.toggle();
 		return "OK!";
 		}
-	@RequestMapping("/light2")
-		public String light2(){			
-			if(pin == null){
-				GpioController gpio = GpioFactory.getInstance();		
-				pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);						
-			}
-			pin.toggle();
-			return "OK!";
-			}
-	@RequestMapping("/light3")
-	public String light3(){		
-		if(pin == null){
-			GpioController gpio = GpioFactory.getInstance();		
-			pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03);						
-		}
-		pin.toggle();
-		return "OK!";
-		}
+//	@RequestMapping("/light2")
+//		public String light2(){			
+//			if(pin == null){
+//				GpioController gpio = GpioFactory.getInstance();		
+//				pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);						
+//			}
+//			pin.toggle();
+//			return "OK!";
+//			}
+//	@RequestMapping("/light3")
+//	public String light3(){		
+//		if(pin == null){
+//			GpioController gpio = GpioFactory.getInstance();		
+//			pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03);						
+//		}
+//		pin.toggle();
+//		return "OK!";
+//		}
 	}
