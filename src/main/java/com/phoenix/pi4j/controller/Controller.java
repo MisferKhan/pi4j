@@ -12,7 +12,7 @@ import com.pi4j.io.gpio.RaspiPin;
 public class Controller {
 	
 	private static GpioPinDigitalOutput pin;
-	GpioController gpio = GpioFactory.getInstance();		
+
 	@RequestMapping("/")
 	public String Greeting(){
 		return "V-Sam is up";
@@ -21,28 +21,28 @@ public class Controller {
 	@RequestMapping("/light1")
 	public String light1(){
 		
-		if(pin == null || pin != gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00)){
-//			pin.low();
+		if(pin == null){
+			GpioController gpio = GpioFactory.getInstance();		
 			pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00);						
 		}
 		pin.toggle();
 		return "OK!";
 		}
 	@RequestMapping("/light2")
-		public String light2(){			
-			if(pin == null || pin != gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02)){
-				pin.low();
-				pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
-				pin.high();
-			}			
+		public String light2(){
+			
+			if(pin == null){
+				GpioController gpio = GpioFactory.getInstance();		
+				pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);						
+			}
 			pin.toggle();
 			return "OK!";
 			}
-	
 	@RequestMapping("/light3")
-	public String light3(){		
-		if(pin == null || pin != gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03)){
-//			pin.low();
+	public String light3(){
+		
+		if(pin == null){
+			GpioController gpio = GpioFactory.getInstance();		
 			pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03);						
 		}
 		pin.toggle();
