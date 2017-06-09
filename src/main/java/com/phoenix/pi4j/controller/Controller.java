@@ -11,39 +11,40 @@ import com.pi4j.io.gpio.RaspiPin;
 @RestController
 public class Controller {
 	
-	private static GpioPinDigitalOutput pin;
-
+	private static GpioPinDigitalOutput pin1;
+	private static GpioPinDigitalOutput pin2;
+	private static GpioPinDigitalOutput pin3;
+	private static GpioController gpio = GpioFactory.getInstance();
 	@RequestMapping("/")
 	public String Greeting(){
 		return "V-Sam is up";
 	}
 	
 	@RequestMapping("/light1")
-	public String light1(){
+	public String light(){
 		
-		if(pin == null){
-			GpioController gpio = GpioFactory.getInstance();		
-			pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00);						
+		if(pin1 == null){
+			pin1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00);
 		}
-		pin.toggle();
+		pin1.toggle();
 		return "OK!";
 		}
-//	@RequestMapping("/light2")
-//		public String light2(){			
-//			if(pin == null){
-//				GpioController gpio = GpioFactory.getInstance();		
-//				pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);						
-//			}
-//			pin.toggle();
-//			return "OK!";
-//			}
-//	@RequestMapping("/light3")
-//	public String light3(){		
-//		if(pin == null){
-//			GpioController gpio = GpioFactory.getInstance();		
-//			pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03);						
-//		}
-//		pin.toggle();
-//		return "OK!";
-//		}
+	@RequestMapping("/light2")
+	public String light2(){
+
+		if(pin2 == null){
+			pin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00);
+		}
+		pin2.toggle();
+		return "OK!";
+		}
+	@RequestMapping("/light3")
+	public String light3(){
+
+		if(pin3 == null){
+			pin3 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00);
+		}
+		pin3.toggle();
+		return "OK!";
+		}
 	}
